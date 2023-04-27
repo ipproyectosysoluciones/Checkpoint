@@ -1,5 +1,7 @@
 # Compilacion de CP (Checkpoints)
 
+Este es una compilacion de CP para practicar y poder pasar el M1 del Bootcamp soyHenry para la carrera Full Stack Development.
+
 ## Contenido
 
 1. CP-M1_1.
