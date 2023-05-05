@@ -31,7 +31,19 @@
 
 function construccionCasas(bolsas) {
     // Tu código aquí:
-    
+    return function (casas) {
+        if (casas <= 0)
+            return "Por favor ingresar cuantas casas quieres construir";
+        if (bolsas < 10)
+            return "No se puede construir casas con esa cantidad de bolsas";
+        if (casas * 10 > bolsas) {
+            let cM = Math.floor(bolsas / 10);
+            return `Solo puedes construir esta cantidad de casas: ${cM}`;
+        }
+        if (casas * 10 == bolsas) {
+            return true;
+        }
+    }
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

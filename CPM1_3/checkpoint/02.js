@@ -20,7 +20,12 @@
 
 const calcularImpuestos = (factura, i = 0, acc = 0) => {
     // Tu código aquí:
-    
+   
+    if ( !Array.isArray( factura ) ) return "Error";
+    if ( !factura.length ) return false;
+    if ( i >= factura.length ) return acc;
+    return calcularImpuestos( factura, i + 1, acc + factura[ i ] );
+
 }
 
 

@@ -13,7 +13,22 @@
 
 function sortPrimeHouses(array) {
     // Tu código aquí:
+    function isPrime(num) {
+        for (let i = 2; i < num; ++i)if (num % i == 0) return false;
+        return true;
+    }
 
+    let n = array.length;
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; ++j) {
+            if (array[j] < array[i]) {
+                [array[j], array[i]] = [array[i], array[j]];
+            }
+        }
+        if (!isPrime(array[i])) return false;
+    }
+    return array;
+    // console.log(array);
 }
 
 sortPrimeHouses([25, 3, 6, 8, 5, 12, 9, 18, 11, 7]);

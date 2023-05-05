@@ -27,7 +27,12 @@ const { LinkedList } = require("../DS");
 
 LinkedList.prototype.mapHouses = function (value) {
     // Tu código aquí:
-    
+    let head = this.head;
+    if (!head) return false;
+    while (head) {
+        head.value = value;
+        head = head.next;
+    }
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

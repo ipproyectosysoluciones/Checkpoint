@@ -32,7 +32,12 @@ const { BinarySearchTree } = require("../DS");
 
 BinarySearchTree.prototype.spotHousePrices = function (num, arr = []) {
     // Tu código aquí:
-    
+    if (this.value > num) {
+        arr.push(this.value);
+        if (this.left) this.left.spotHousePrices(num, arr);
+    }
+    if (this.right) this.right.spotHousePrices(num, arr);
+    return arr;
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

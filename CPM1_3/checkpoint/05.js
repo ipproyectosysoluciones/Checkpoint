@@ -26,7 +26,24 @@ const { Stack } = require("../DS");
 
 function tipologiasSeparadas(arr) {
     // Tu código aquí:
-    
+    let n = arr.length;
+    if (!n) return "Tipologias inexistentes";
+    let stack = new Stack();
+    let prev = arr.shift();
+    let reps = 0;
+    stack.push(prev);
+    while (arr.length) {
+        let next = arr.shift()
+        if (prev == next) {
+            arr.push(next);
+            reps++;
+            continue;
+        }
+        stack.push(next);
+        prev = next;
+    }
+    if (!reps) return "No hay tipologias repetidas";
+    return stack;
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

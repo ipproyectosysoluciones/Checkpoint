@@ -31,7 +31,17 @@ const { Queue } = require("../DS");
 
 function henryParty(arr) {
     // Tu código aquí:
-    
+    if (!arr.length) return false;
+    let queue = new Queue();
+    for (let persona of arr) {
+        if (!persona.ticket || !persona.estado) {
+            return false;
+        }
+        if (persona.ticket == "VIP" && persona.estado == "Conocido") {
+            queue.enqueue(persona);
+        }
+    }
+    return queue;
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
