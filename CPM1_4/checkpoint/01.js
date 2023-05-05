@@ -32,7 +32,11 @@ final', 'Muerte en el Nilo', 'Black Adam'] OUTPUT ---> { "estrenar": 'Morbius',
 
 function guardarPeliculas(pelisQueue) {
     // Tu código aquí:
-    
+    let first = pelisQueue.dequeue();
+    let contador = 1;
+    let obj = {"estrenar" : first};
+    while(pelisQueue.size())obj[contador++] = pelisQueue.dequeue();
+    return obj;
 }
 
 /*⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️*/

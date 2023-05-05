@@ -42,7 +42,23 @@ OUTPUT ---> Stack [
 */
 function acomodarPeliculas(listaDePeliculas, nombre) {
     // Tu código aquí:
-    
+    let stack = new Stack();
+    for (let pelicula of listaDePeliculas) {
+
+        let duracion = pelicula["duracion"];
+        let nombrePeli = pelicula["nombre"];
+        let estreno = pelicula["estreno"];
+
+        if (nombre !== nombrePeli && duracion >= 1) {
+            let obj = {
+                "nombre": nombrePeli,
+                estreno,
+                duracion,
+            }
+            stack.push(obj);
+        }
+    }
+    return stack;
 }
 
 /* ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️*/

@@ -40,7 +40,19 @@ horario: 23, ticket: true}
 */
 BinarySearchTree.prototype.ingresar = function (arregloDePeliculas) {
     // Tu código aquí:
-    
+    if (!arregloDePeliculas.length) return false;
+    let tPeli = this.value.nombre;
+    let tHora = this.value.horario;
+    let found = arregloDePeliculas.reduce((acc, value) => {
+        // console.log(tPeli)
+        return acc || (value["nombre"] == tPeli && value["horario"] == tHora);
+    }, false);
+    // console.log(found, tPeli);
+    if (found) {
+        this.value.ticket = true;
+    }
+    if (this.left) this.left.ingresar(arregloDePeliculas);
+    if (this.right) this.right.ingresar(arregloDePeliculas);
 };
 
 /*⚠️ NO MODIFICAR NADA DEBAJO DE ESTA LINEA ⚠️*/

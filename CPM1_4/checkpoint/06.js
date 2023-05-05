@@ -69,15 +69,24 @@ INPUT ---> (catalogo, nuevasPeliculas) OUTPUT --->
 */
 
 function swap(arr, i, j) {
-    
+  [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 
 function insertionSort(array) {
-    
+  let n = array.length;
+  for (let i = 1; i < n; ++i) {
+      let j = i;
+      while (j > 0 &&
+          array[j]["añoDeEstreno"] < array[j - 1]["añoDeEstreno"]) {
+          swap(array, j, j - 1), j--;
+      }
+  }
 }
 
 function ordenarPorAño(catalogo, nuevasPeliculas) {
-    
+  let all_movies = catalogo.concat(nuevasPeliculas);
+  insertionSort(all_movies);
+  return all_movies;
 }
 
 

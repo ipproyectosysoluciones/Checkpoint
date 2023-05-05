@@ -33,7 +33,22 @@ const { BinarySearchTree } = require("../DS");
 
 BinarySearchTree.prototype.obtenerPelicula = function (pelicula, array = []) {
     // Tu código aquí:
-    
+    let obj = this.value;
+    let newObj;
+    if (pelicula["nombre"] == obj["nombre"] &&
+        pelicula["horario"] == obj["horario"] &&
+        pelicula["cartelera"]["dia"] == obj["cartelera"]["dia"] &&
+        pelicula["cartelera"]["mes"] == obj["cartelera"]["mes"]) {
+        newObj = {
+            "nombre": obj["nombre"],
+            "horario": obj["horario"],
+        }
+        Object.assign(newObj, obj["cartelera"]);
+        array.push(newObj);
+    }
+    if (this.left) this.left.obtenerPelicula(pelicula, array);
+    if (this.right) this.right.obtenerPelicula(pelicula, array);
+    return array;
 };
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

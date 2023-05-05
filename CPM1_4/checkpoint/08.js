@@ -20,7 +20,7 @@ el número de la cantidad de nodos (longitud) que tiene que tener la lista.
 */
 LinkedList.prototype.generarLista = function (longitud, i = 1) {
     // Tu código aquí:
-    
+    while (i <= longitud) this.add(i), i++;
 };
 
 /*⚠️ NO MODIFICAR NADA DEBAJO DE ESTA LINEA ⚠️*/

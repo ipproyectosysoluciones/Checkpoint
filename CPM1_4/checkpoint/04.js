@@ -31,7 +31,16 @@ Terminator'
 
 function seleccionarPelicula(peliculas, nombrePelicula, i = 0) {
     // Tu código aquí:
-    
+    if (!peliculas.hasOwnProperty(0))
+        return "por favor indicar las peliculas a buscar";
+
+    if (!peliculas.hasOwnProperty(i))
+        return `no tenemos la pelicula: ${nombrePelicula}`;
+
+    if (peliculas[i] == nombrePelicula)
+        return `se encontro la pelicula: ${nombrePelicula}`;
+
+    return seleccionarPelicula(peliculas, nombrePelicula, i + 1);
 }
 
 

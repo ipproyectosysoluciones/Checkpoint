@@ -53,7 +53,27 @@ de esas peliculas en nuestro catalogo"
 
 function pelisEstrenos(listaDePeliculas) {
     // Tu código aquí:
-    
+    return function (estrenos = []) {
+      if (!estrenos.length)
+          return "Por favor indicar las peliculas que son de estreno";
+      else {
+          let count = 0;
+          for (let pelicula of listaDePeliculas) {
+              for (let estreno of estrenos) {
+                  if (estreno == pelicula["nombre"]) {
+                      count++;
+                      pelicula.estreno = true;
+                  }
+                  if (pelicula.estreno) break;
+              }
+          }
+          if (!count) {
+              return "No se encontro ninguna de esas peliculas" +
+                  " en nuestro catalogo";
+          }
+          return listaDePeliculas;
+      }
+  }
 }
 
 /* ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️*/

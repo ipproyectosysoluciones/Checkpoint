@@ -40,7 +40,10 @@ OUTPUT --->
 */
 function peliTaquillera(peliculas) {
     // Tu código aquí:
-    
+    return peliculas.reduce((acc, value) => {
+      if (value.taquillera) acc.push(value);
+      return acc;
+  }, []);
 }
 
 /*⚠️ NO MODIFICAR NADA DEBAJO DE ESTA LINEA ⚠️*/
