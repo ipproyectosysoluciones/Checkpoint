@@ -39,7 +39,12 @@ const { BinarySearchTree } = require('../DS');
 
 BinarySearchTree.prototype.vender = function (array) {
     // Tu código aquí:
-    
+    if (!array.length) return false;
+    if (array.includes(this.value.nombre)) {
+        this.value.vendido = true;
+    }
+    if (this.left) this.left.vender(array);
+    if (this.right) this.right.vender(array);
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

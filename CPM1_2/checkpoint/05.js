@@ -22,7 +22,16 @@
 
 function liquidacion(array, i = null, liq = []) {
     // Tu código aquí:
-    
+    let n = array.length;
+    if (i == null) i = n - 1;
+    if (!n) return "No hay prendas en liquidación";
+    if (i < 0) return liq;
+    let obj = array[i];
+    let key = Object.keys(obj)[0];
+    if (obj[key].hasOwnProperty("LIQUIDACION") && obj[key]["LIQUIDACION"]) {
+        liq.push(obj);
+    }
+    return liquidacion(array, i - 1, liq);
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

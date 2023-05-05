@@ -28,7 +28,25 @@ const Stack = require("../DS").Stack;
 
 function apilarPantalones(array, talla) {
     // Tu código aquí:
-    
+    let obj = {};
+    //
+    let n = array.length;
+    if (!n) return false;
+    for (let i = 0; i < n; ++i) {
+        let pantalon = array[i];
+        if (pantalon == talla) {
+            if (!obj.hasOwnProperty("pantalonesEncontrados")) {
+                obj["pantalonesEncontrados"] = new Stack();
+            }
+            obj["pantalonesEncontrados"].push(pantalon);
+        } else {
+            if (!obj.hasOwnProperty("pantalonesRestantes")) {
+                obj["pantalonesRestantes"] = new Stack();
+            }
+            obj["pantalonesRestantes"].push(pantalon);
+        }
+    }
+    return obj;
 };
 
 

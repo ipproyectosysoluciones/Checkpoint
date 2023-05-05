@@ -25,7 +25,15 @@ const { LinkedList } = require('../DS');
 
 LinkedList.prototype.tacharLista = function (lista) {
     // Tu código aquí:
-
+    let newList = new LinkedList();
+    let temp = this.head;
+    while (temp) {
+        if (!lista.includes(temp.value)) {
+            newList.add(temp.value);
+        }
+        temp = temp.next;
+    }
+    return newList;
 }
 
 

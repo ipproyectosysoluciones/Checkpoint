@@ -20,7 +20,11 @@
 
 function atenderClientes(clientes) {
     // Tu código aquí:
-    
+    let keys = Object.keys(clientes);
+    if (!keys.length) return clientes;
+    let first_key = keys[0];
+    delete clientes[first_key];
+    return atenderClientes(clientes);
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

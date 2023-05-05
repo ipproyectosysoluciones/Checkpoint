@@ -25,7 +25,14 @@ const { LinkedList } = require('../DS');
 
 LinkedList.prototype.migrarStock = function () {
     // Tu código aquí:
-
+    let temp = this.head;
+    if (!temp) return "No hay stock para migrar";
+    let obj = {};
+    while (temp) {
+        obj[temp.value["nombre"]] = temp.value["stock"];
+        temp = temp.next;
+    }
+    return obj;
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

@@ -26,7 +26,18 @@
 
 function chequearDisponibilidad(ropas) {
     // Tu código aquí:
-    
+    return function (stock) {
+        let encontradas = 0;
+        ropas.forEach(prenda => {
+            if (stock.includes(prenda)) encontradas++;
+        });
+        if (!encontradas) return "No se encontraron las prendas solicitadas";
+        if (encontradas == ropas.length)
+            return "Todas las prendas fueron encontradas";
+
+        return `${encontradas} de las ${ropas.length} prendas solicitadas` +
+            " se encuentran en el stock";
+    }
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

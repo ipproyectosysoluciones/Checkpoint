@@ -19,12 +19,46 @@
 //  arreglo de MAYOR a MENOR 🟢 NO utilizar el método sort de array!
 
 function mergeSort(array) {
-    
+    let n = array.length;
+    if (n <= 1) return [...array];
+    let half = parseInt(n / 2);
+    let left = mergeSort(array.slice(0, half));
+    let rigth = mergeSort(array.slice(half));
+    let merged = Array.from(Array(n), x => 0);
+    let i = 0, j = 0, k = 0;
+    while (k < n) {
+        if (i >= left.length) {
+            while (j < rigth.length) {
+                merged[k] = rigth[j];
+                j++;
+                k++;
+            }
+            break;
+        }
+        if (j >= rigth.length) {
+            while (i < left.length) {
+                merged[k] = left[i];
+                i++;
+                k++;
+            }
+            break;
+        }
+        if (left[i]["precio"] > rigth[j]["precio"]) {
+            merged[k] = left[i];
+            i++;
+        } else {
+            merged[k] = rigth[j];
+            j++;
+        }
+        k++;
+    }
+    return merged;
 }
 
 function ordenarRopa(ropa) {
     // Tu código aquí:
-    
+    let ordered = mergeSort(ropa);
+    return ordered;
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

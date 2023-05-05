@@ -33,7 +33,12 @@ const Queue = require("../DS").Queue;
 
 function guardarCamisetas(ropaQueue) {
     // Tu código aquí:
-    
+    let obj = {};
+    while (ropaQueue.size()) {
+        let camisa = ropaQueue.dequeue();
+        obj[camisa] = camisa;
+    }
+    return obj;
 };
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

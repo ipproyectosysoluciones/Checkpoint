@@ -40,7 +40,17 @@ const { BinarySearchTree } = require("../DS");
 
 BinarySearchTree.prototype.obtenerPrendas = function (string) {
     // Tu código aquí:
-    
+    let arr = [];
+    if (this.value.nombre == string) {
+        arr.push(string);
+    }
+    if (this.left) {
+        arr = arr.concat(this.left.obtenerPrendas(string));
+    }
+    if (this.right) {
+        arr = arr.concat(this.right.obtenerPrendas(string));
+    }
+    return arr;
 };
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
