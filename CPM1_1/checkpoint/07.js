@@ -15,7 +15,9 @@
 
 var restArray = function (array, count = 1) {
     // Tu código acá
-    
+    if (!Array.isArray(array)) return array;
+    return count +
+        array.reduce((acc, value) => { return acc + restArray(value, 0); }, -1);
 };
 
 // No modifiques nada debajo de esta linea //

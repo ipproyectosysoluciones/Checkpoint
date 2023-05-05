@@ -9,7 +9,20 @@
 
 function insertAndSort(array, object) {
     // Tu código acá
-    
+    let keys = Object.keys(object);
+    let values = array.concat(keys.reduce((acc, value) => {
+        acc.push(object[value]);
+        return acc;
+    }, []));
+    let n = values.length;
+    for (let i = 0; i < n; ++i) {
+        for (let j = i + 1; j < n; j++) {
+            if (values[j] < values[i]) {
+                [values[j], values[i]] = [values[i], values[j]];
+            }
+        }
+    }
+    return values;
 }
 
 //⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

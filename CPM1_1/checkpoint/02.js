@@ -15,7 +15,18 @@ LinkedList
 
 LinkedList.prototype.simplifyList = function () {
     // Tu código aca:
-    
+    let uniques = [];
+    let temp = this.head;
+    if (!temp) return false;
+    let newL = new LinkedList();
+    while (temp) {
+        if (!uniques.includes(temp.value)) {
+            uniques.push(temp.value);
+            newL.add(temp.value);
+        }
+        temp = temp.next;
+    }
+    this.head = newL.head;
 }
 
 

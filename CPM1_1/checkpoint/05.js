@@ -20,7 +20,12 @@
 
 function mayorMenorOIgual(numFijo) {
     // Tu código aca:
-    
+    return function (param) {
+      if (param == null) return [];
+      if (param + numFijo < 10) return "la suma es menor a 10";
+      if (param + numFijo > 10) return "la suma es mayor a 10";
+      if (param + numFijo == 10) return 10;
+  }
 }
 
 // No modifiques nada debajo de esta linea //

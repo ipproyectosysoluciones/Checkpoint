@@ -18,7 +18,19 @@ const { Stack } = require("../DS");
 //   ✔️crearStack("RET****ORNA**R*FA*L**SO") => "Stack vacío"
 
 function crearStack(string) {
-    
+  let n = string.length;
+  if (!n) return false;
+  let stack = new Stack();
+  for (let i = 0; i < n; ++i) {
+      let char = string[i];
+      if (char == "*") {
+          if (!stack.size()) return "Stack vacío";
+          stack.pop();
+      } else {
+          stack.push(char);
+      }
+  }
+  return stack;
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

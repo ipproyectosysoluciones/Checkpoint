@@ -18,13 +18,31 @@
 // 8, 8/2 = 4, 42 ------> resultado = 16
 
 function countType(array, type) {
-    
+  if (type == "array" && Array.isArray(array)) {
+    return array.reduce((acc, value) => {
+        return acc + countType(value, type)
+    }, 1);
+}
+if (typeof array == type) {
+    return 1;
+}
+if (Array.isArray(array)) {
+    return array.reduce((acc, value) => {
+        return acc + countType(value, type)
+    }, 0);
+}
+return 0;
 }
 
 function countDeep(arraicito) {
     // Tu código aca:
-    
+    let numArrays = countType(arraicito, "array");
+    let numNumbers = countType(arraicito, "number");
+    let numStrings = countType(arraicito, "string");
+    let numBooleans = countType(arraicito, "boolean");
+    let numNulls = countType(arraicito, "undefined");
 
+    return (((numArrays - numNumbers) * numStrings) / numBooleans) ** numNulls;
 }
 
 // No modifiques nada debajo de esta linea //

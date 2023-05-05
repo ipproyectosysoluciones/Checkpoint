@@ -39,7 +39,26 @@ const { BinarySearchTree } = require("../DS");
 
 BinarySearchTree.prototype.insertWord = function (string) {
     // Tu código acá
-    
+    let n = string.length;
+    if (n == this.value.length || !n) {
+        return false;
+    }
+    else if (n < this.value.length) {
+        if (this.left) {
+            return this.left.insertWord(string);
+        } else {
+            this.left = new BinarySearchTree(string);
+            return string;
+        }
+    }
+    else {
+        if (this.right) {
+            return this.right.insertWord(string);
+        } else {
+            this.right = new BinarySearchTree(string);
+            return string;
+        }
+    }
 };
 
 //⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
