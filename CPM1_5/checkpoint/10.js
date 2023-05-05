@@ -31,6 +31,8 @@ REQUISITOS
 BinarySearchTree.prototype.enOrden = function () {
    //  Tu código aquí:
 
+
+   
 };
 
 //  ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

@@ -39,6 +39,8 @@ REQUISITOS
 BinarySearchTree.prototype.consultarTragos = function () {
    // Tu código aquí:
 
+
+   
 };
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

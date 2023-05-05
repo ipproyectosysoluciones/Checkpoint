@@ -22,7 +22,20 @@ OUTPUT --> Head ➡ ({nombre: "Franco", trago: "Fernet"}) ➡ ({nombre: "Franco"
 
 LinkedList.prototype.encontrarPedidoRepetido = function (nombre) {
    // Tu código aquí:
+   let nodoActual = this.head;
+   let nuevaLista = new LinkedList();
+   let pedidoEncontrado = false;
 
+   while ( nodoActual ) {
+      if( nodoActual.value.nombre === nombre ){
+         nuevaLista.add( nodoActual.value );
+         pedidoEncontrado = true;
+      }
+      nodoActual = nodoActual.next;
+   }
+
+   if( pedidoEncontrado ) return nuevaLista;
+   else return false;
 };
 
 // ⚠️ NO MODIFICAR NADA DEBAJO DE ESTA LINEA ⚠️

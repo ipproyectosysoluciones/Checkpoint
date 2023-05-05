@@ -43,7 +43,18 @@ REQUISITOS:
 
 function guardarTragos(tragosQueue) {
    // Tu código aquí:
-  
+  let tragosVendidos = {};
+
+  while ( tragosQueue.size() ) {
+    const trago = tragosQueue.dequeue();
+
+    if ( tragosVendidos.hasOwnProperty( trago ) ) {
+      tragosVendidos[ trago ].cantidad ++;
+    } else {
+      tragosVendidos[ trago ] = { trago: trago, cantidad: 1 };
+    }
+  }
+  return tragosVendidos;
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

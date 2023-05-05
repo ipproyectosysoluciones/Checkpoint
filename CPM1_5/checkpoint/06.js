@@ -28,7 +28,21 @@ REQUISITOS
 
 function ordenarPedidos(tragos) {
    // Tu código aquí:
-
+  /**
+   * Algogoritmo Burbuja
+   */
+  let n = tragos.length;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - 1; j++) {
+      if ( tragos[j].pedido.precio > tragos[j + 1].pedido.precio ) {
+        
+        let aux = tragos[ j ];
+        tragos[ j ] = tragos[ j + 1 ];
+        tragos[ j + 1 ] = aux;
+      }
+    }
+  }
+  return tragos;
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

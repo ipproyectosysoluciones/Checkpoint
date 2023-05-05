@@ -26,9 +26,17 @@ REQUISITOS
 ⛔️ Tip: puedes agregar un default parameter a la función.
 */
 
-function encontrarTragoPopular() {
+function encontrarTragoPopular( tragos, tragoMasVendido = null ) {
    // Tu código aquí:
-
+  for (let trago in tragos) {
+    if ( !tragoMasVendido || tragos[ trago ].cantidadVendida > tragoMasVendido.cantidadVendida ) {
+      tragoMasVendido = tragos[ trago ];
+    }
+  }
+  if ( tragoMasVendido ) {
+    tragoMasVendido.tragoMasVendido = true;
+  }
+  return tragoMasVendido;
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

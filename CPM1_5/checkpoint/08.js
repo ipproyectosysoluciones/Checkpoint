@@ -29,7 +29,19 @@ REQUISITOS
 
 LinkedList.prototype.entregarPedido = function (clientes) {
    // Tu código aquí:
+   let nuevaLista = new LinkedList();
+   let actual = this.head;
 
+   while( actual !== null ){
+      if( clientes.includes( actual.value.nombre ) ){
+         let pedido = actual.value.trago;
+         let recibo = actual.value.precio;
+
+         nuevaLista.add( { pedido, recibo } );
+      }
+      actual = actual.next;
+   }
+   return nuevaLista;
 };
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

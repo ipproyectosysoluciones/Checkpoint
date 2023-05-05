@@ -33,7 +33,20 @@ No debería de arrojar el error si nos pasan los tragos en minúscula o mayúscu
 
 function consultarPreparacion(tragos) {
    // Tu código aquí:
+   return function ( carta ) { 
+    let resultados = [];
 
+    for (const trago of tragos ) {
+      let bebida = carta.find( bebida => bebida.name.toLowerCase() === trago.toLowerCase() );
+
+      if ( bebida ) {
+        resultados.push( [ `El trago: ${ bebida.name }, se prepara de la siguiente forma: ${ bebida.preparacion }` ] );
+      } else {
+        return 'Por favor verifique bien los nombres de los tragos que quiere solicitar su preparación';
+      }
+    }
+    return resultados;
+  };
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
